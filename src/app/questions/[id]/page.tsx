@@ -195,7 +195,7 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <button
           className={`flex-1 ${getButtonColor(
             "A"
-          )} text-white text-4xl font-bold flex items-center justify-center p-8 transition-colors`}
+          )} text-white text-4xl font-bold flex items-center justify-center p-16 transition-colors`}
           onClick={() => handleVote("A")}
           disabled={submitting || loading}
         >
@@ -230,7 +230,7 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <button
           className={`flex-1 ${getButtonColor(
             "B"
-          )} text-white text-4xl font-bold flex items-center justify-center p-8 transition-colors`}
+          )} text-white text-4xl font-bold flex items-center justify-center p-16 transition-colors`}
           onClick={() => handleVote("B")}
           disabled={submitting || loading}
         >
@@ -263,14 +263,14 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
 
       {/* Center "OR" circle */}
-      <div className="flex w-60 h-60 rounded-full bg-black text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center items-center pointer-events-none shadow-2xl">
+      <div className="flex w-60 h-60 rounded-full bg-black text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center items-center pointer-events-none shadow-2xl z-10">
         <h1 className="font-extrabold text-8xl">OR</h1>
       </div>
 
       {/* Next button - only show after voting */}
       {userVote !== null && (
         <button
-          className="bg-white text-black text-6xl font-bold rounded-full py-6 px-12 hover:bg-gray-100 active:bg-gray-200 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg transition-colors"
+          className="bg-white text-black text-6xl font-bold rounded-full py-6 px-12 hover:bg-gray-100 active:bg-gray-200 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg transition-colors z-20"
           onClick={goToNext}
         >
           Next →
