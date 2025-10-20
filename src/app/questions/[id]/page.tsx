@@ -28,23 +28,30 @@ const getRandomizedQuestions = () => {
   return randomizedQuestions;
 };
 
-const QuestionPage = ({ params }: { params: { id: string } }) => {
-  const id = params.id;
+const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const router = useRouter();
 
-  // Use randomized questions
-  const allQuestions = getRandomizedQuestions();
-  const questionIndex = parseInt(id) - 1; // Convert to 0-based index
-  const question = allQuestions[questionIndex];
-
   // States
+  const [id, setId] = useState<string>("");
   const [counts, setCounts] = useState<VoteCounts>({ votesA: 0, votesB: 0 });
   const [userVote, setUserVote] = useState<Option>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [submitting, setSubmitting] = useState<boolean>(false);
 
+  // Unwrap params Promise
+  useEffect(() => {
+    params.then((p) => setId(p.id));
+  }, [params]);
+
+  // Use randomized questions
+  const allQuestions = getRandomizedQuestions();
+  const questionIndex = id ? parseInt(id) - 1 : -1; // Convert to 0-based index
+  const question = questionIndex >= 0 ? allQuestions[questionIndex] : null;
+
   // Question not found or past the end - redirect appropriately
   useEffect(() => {
+    if (!id) return; // Wait for id to be set
+
     if (isNaN(questionIndex) || questionIndex < 0) {
       // Invalid question number - go home
       router.push("/");
@@ -55,7 +62,7 @@ const QuestionPage = ({ params }: { params: { id: string } }) => {
       // Other error - go home
       router.push("/");
     }
-  }, [question, questionIndex, router, allQuestions.length]);
+  }, [question, questionIndex, router, allQuestions.length, id]);
 
   // Determine winner
   const getWinner = (): Option => {
