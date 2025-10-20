@@ -207,17 +207,21 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
             <div className="text-center">
               <div className="text-7xl font-bold mb-2">{counts.votesA}</div>
               <div className="text-2xl font-light mb-1">people voted for</div>
-              <div className="text-xl font-bold">"{question.optionA}"</div>
+              <div className="text-xl font-bold">
+                &quot;{question.optionA}&quot;
+              </div>
             </div>
           ) : (
             // User voted for the other option
             <div className="text-center">
               <div className="text-lg font-light mb-2">
-                You didn't pick this, but
+                You didn&apos;t pick this, but
               </div>
               <div className="text-7xl font-bold mb-2">{counts.votesA}</div>
               <div className="text-lg font-light">voted for</div>
-              <div className="text-xl font-bold mt-1">"{question.optionA}"</div>
+              <div className="text-xl font-bold mt-1">
+                &quot;{question.optionA}&quot;
+              </div>
             </div>
           )}
         </button>
@@ -238,17 +242,21 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
             <div className="text-center">
               <div className="text-7xl font-bold mb-2">{counts.votesB}</div>
               <div className="text-2xl font-light mb-1">people voted for</div>
-              <div className="text-xl font-bold">"{question.optionB}"</div>
+              <div className="text-xl font-bold">
+                &quot;{question.optionB}&quot;
+              </div>
             </div>
           ) : (
             // User voted for the other option
             <div className="text-center">
               <div className="text-lg font-light mb-2">
-                You didn't pick this, but
+                You didn&apos;t pick this, but
               </div>
               <div className="text-7xl font-bold mb-2">{counts.votesB}</div>
               <div className="text-lg font-light">voted for</div>
-              <div className="text-xl font-bold mt-1">"{question.optionB}"</div>
+              <div className="text-xl font-bold mt-1">
+                &quot;{question.optionB}&quot;
+              </div>
             </div>
           )}
         </button>
