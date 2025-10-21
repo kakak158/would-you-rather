@@ -195,7 +195,7 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <button
           className={`flex-1 ${getButtonColor(
             "A"
-          )} text-white text-4xl font-bold flex items-center justify-center p-16 transition-colors`}
+          )} text-white text-4xl font-bold flex items-center justify-center p-20 transition-colors`}
           onClick={() => handleVote("A")}
           disabled={submitting || loading}
         >
@@ -230,7 +230,7 @@ const QuestionPage = ({ params }: { params: Promise<{ id: string }> }) => {
         <button
           className={`flex-1 ${getButtonColor(
             "B"
-          )} text-white text-4xl font-bold flex items-center justify-center p-16 transition-colors`}
+          )} text-white text-4xl font-bold flex items-center justify-center p-20 transition-colors`}
           onClick={() => handleVote("B")}
           disabled={submitting || loading}
         >
